@@ -1,12 +1,12 @@
 Gender Bias in University Admissions
 ================
-SrishtiBhargava
+Srishti Bhargava
 11/21/2018
 
 “I confirm that the following report and associated code is my own work,
 except where clearly indicated.”
 
-\#Abstract
+## Abstract
 
 This report aims to answer the following question on the basis of the
 admissions data from the package Data Science Labs (A. Irizarry, 2018)
@@ -23,7 +23,7 @@ that if the number of observations was less, then the tests failed to
 detect differences regardless of their effect size. While a large number
 of observations showed significant differences in the two ratios.
 
-\#Introduction
+## Introduction
 
 The data used was about “gender bias among graduate school admissions to
 UC Berkeley” (A. Irizarry, 2018). Only two variables out of the four
@@ -48,7 +48,7 @@ performance of the two tests. Whereas, while calculating the power the
 non-parametric was seen to perform slightly better on than the
 parametric test.
 
-\#Method
+## Method
 
 The investigation began by plotting the data and statistically
 summarizing the data to determine the tests to run on the data. The data
@@ -86,18 +86,62 @@ times the bigger and because they are visibly equal to each other.(Table
 This is done for different scenarios which are explained in the section
 below.
 
-![](README_files/figure-gfm/Explore-1.png)<!-- -->
+<img src="README_files/figure-gfm/Explore-1.png" style="display: block; margin: auto;" />
+<table>
+<caption>
+Table 1: Summary Table for Admission rates
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Gender
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+Standard Deviation
+</th>
+<th style="text-align:center;">
+Number of Samples
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+men
+</td>
+<td style="text-align:center;">
+0.38167
+</td>
+<td style="text-align:center;">
+0.21683
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+women
+</td>
+<td style="text-align:center;">
+0.41667
+</td>
+<td style="text-align:center;">
+0.28062
+</td>
+<td style="text-align:center;">
+6
+</td>
+</tr>
+</tbody>
+</table>
 
-| gender |    Mean | StandardDeviation | NumberOfSamples |
-|:-------|--------:|------------------:|----------------:|
-| men    | 0.38167 |           0.21683 |               6 |
-| women  | 0.41667 |           0.28062 |               6 |
+## Results
 
-Summary Table for Admision rates
-
-\#Results
-
-\#\#Scenario One: Measurement error in the observations
+### Scenario One: Measurement error in the observations
 
 A simulated data set was created from the original dataset by using the
 mean and standard deviation of the original dataset and generating
@@ -127,16 +171,61 @@ type 1 error when the significance level is at 5% and 10%.
 
 In the table below alpha is the significance level.
 
-| Size - T-test | Size - Mann Whitney U | Alpha |
-|--------------:|----------------------:|------:|
-|       0.00200 |               0.00501 |  0.01 |
-|       0.05105 |               0.04805 |  0.05 |
-|       0.09710 |               0.10210 |  0.10 |
+<table>
+<caption>
+Table 2: Size for different significance levels
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Size - T-test
+</th>
+<th style="text-align:center;">
+Size - Mann Whitney U
+</th>
+<th style="text-align:center;">
+Alpha
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+0.00200
+</td>
+<td style="text-align:center;">
+0.00501
+</td>
+<td style="text-align:center;">
+0.01
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+0.05105
+</td>
+<td style="text-align:center;">
+0.04805
+</td>
+<td style="text-align:center;">
+0.05
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+0.09710
+</td>
+<td style="text-align:center;">
+0.10210
+</td>
+<td style="text-align:center;">
+0.10
+</td>
+</tr>
+</tbody>
+</table>
 
-Size for different significance levels
-
-\#\#Scenario Two: Changing the effect size and the number of data points
-in the sample
+### Scenario Two: Changing the effect size and the number of data points in the sample
 
 To make the calculation of this scenario easier the mean and standard
 deviation of the original data was rounded off to two decimal places.
@@ -165,21 +254,134 @@ evidence for a difference in the means of the two ratios. The power for
 both these were as high as 90% for the parametric and 96% for the
 non-parametric as summarized in the table below.
 
-|     |      12 |     100 |    1000 |
-|:----|--------:|--------:|--------:|
-| 0.3 | 0.04505 | 0.24925 | 0.91091 |
-| 0.5 | 0.04304 | 0.69670 | 0.95295 |
-| 0.8 | 0.64665 | 0.04204 | 0.99900 |
-
-T-test: Power
-
-|     |      12 |     100 |    1000 |
-|:----|--------:|--------:|--------:|
-| 0.3 | 0.04905 | 0.25626 | 0.97197 |
-| 0.5 | 0.04705 | 0.72773 | 0.97397 |
-| 0.8 | 0.69069 | 0.04505 | 0.99900 |
-
-Mann Whitney U Test: Power
+<table>
+<caption>
+Table 3: T-test: Power
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+12
+</th>
+<th style="text-align:center;">
+100
+</th>
+<th style="text-align:center;">
+1000
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:center;">
+0.04505
+</td>
+<td style="text-align:center;">
+0.24925
+</td>
+<td style="text-align:center;">
+0.91091
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0.5
+</td>
+<td style="text-align:center;">
+0.04304
+</td>
+<td style="text-align:center;">
+0.69670
+</td>
+<td style="text-align:center;">
+0.95295
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0.8
+</td>
+<td style="text-align:center;">
+0.64665
+</td>
+<td style="text-align:center;">
+0.04204
+</td>
+<td style="text-align:center;">
+0.99900
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+Table 4: Mann Whitney U Test: Power
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+12
+</th>
+<th style="text-align:center;">
+100
+</th>
+<th style="text-align:center;">
+1000
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+0.3
+</td>
+<td style="text-align:center;">
+0.04905
+</td>
+<td style="text-align:center;">
+0.25626
+</td>
+<td style="text-align:center;">
+0.97197
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0.5
+</td>
+<td style="text-align:center;">
+0.04705
+</td>
+<td style="text-align:center;">
+0.72773
+</td>
+<td style="text-align:center;">
+0.97397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+0.8
+</td>
+<td style="text-align:center;">
+0.69069
+</td>
+<td style="text-align:center;">
+0.04505
+</td>
+<td style="text-align:center;">
+0.99900
+</td>
+</tr>
+</tbody>
+</table>
 
 Similar tests were conducted for different effect sizes(5 point
 difference and 8 point difference). The results are summarised in the
@@ -188,7 +390,9 @@ only be achieved with large number of sample sizes. As we increased the
 effect size the power increased on an overall level regardless of the
 sample size.
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- --> \#Conclusion
+<img src="README_files/figure-gfm/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+
+## Conclusion
 
 Depending on the scenarios and simulated data there were different
 answers for the research question, for lower sample sizes there was no
@@ -205,7 +409,7 @@ Finally, the non-parametric test had higher power in each simulation,
 though the difference was not significant, it might suggest that a
 non-parametric test gave more reliable results.
 
-\#References
+## References
 
 • Rafael A. Irizarry (2018). dslabs: Data Science Labs. R package
 version 0.5.1. <https://CRAN.R-project.org/package=dslabs>
